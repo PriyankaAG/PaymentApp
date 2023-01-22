@@ -28,9 +28,10 @@ namespace PaymentApp.Droid.Services
             try
             {
                 long tsLong = JavaSystem.CurrentTimeMillis() / 1000;
-                string transaction_ref_id ="999999999999";
-                string transaction_ref = "999999999999";
-                //string transaction_ref_id = tsLong.ToString() + "UPI";
+                //string transaction_ref_id ="999999999999";
+                //string transaction_ref = "999999999999";
+                string transaction_ref_id = tsLong.ToString() + "UPI";
+                string transaction_ref = tsLong.ToString();
                 //googlePayURI = "upi://pay?pa=priya.gaikwad74@okhdfcbank&pn=Priya%20Gaikwad&aid=uGICAgIDVjo_qPQ";
                 //var uri = Android.Net.Uri.Parse(googlePayURI);
                 using (var uri = new Android.Net.Uri.Builder()
