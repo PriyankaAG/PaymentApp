@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "Fb6HWVjSWWEDKt2Plf1H49xP/3yPZFbxo0okZNLIwOcn/AZFOxRpE+Eo27IvlqsD68oXTMiZPJTLxhlLVLBnzg==",
+  "success": true,
+  "projectFilePath": "D:\\PaymentApp\\PaymentApp.iOS\\PaymentApp.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LENOVO\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\LENOVO\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Users\\LENOVO\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
+    "C:\\Users\\LENOVO\\.nuget\\packages\\zxing.net.mobile\\2.4.1\\zxing.net.mobile.2.4.1.nupkg.sha512",
+    "C:\\Users\\LENOVO\\.nuget\\packages\\zxing.net.mobile.forms\\2.4.1\\zxing.net.mobile.forms.2.4.1.nupkg.sha512"
+  ],
+  "logs": []
+}
