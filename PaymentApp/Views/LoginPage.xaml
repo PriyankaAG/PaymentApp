@@ -15,7 +15,7 @@
             </Grid.RowDefinitions>
             <Label Text="Enter Amount" Grid.Row="0"/>
             <Entry Text="{Binding Amount}" Grid.Row="1"/>
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}" Grid.Row="2"/>
+            <Button VerticalOptions="Center" Text="Pay" Command="{Binding LoginCommand}" Grid.Row="2"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

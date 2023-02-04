@@ -1,9 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.paymentapp" android:installLocation="auto">
+	<queries>
+		<package android:name="com.google.android.apps.nbu.paisa.user" />
+		<provider android:authorities="com.google.android.apps.nbu.paisa.user" />
+	</queries>
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
-	<application android:label="PaymentApp.Android" android:theme="@style/MainTheme"></application>
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<application android:label="PaymentApp.Android" android:theme="@style/MainTheme">
+		<meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true" />
+	</application>
 	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.FLASHLIGHT" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+	<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>

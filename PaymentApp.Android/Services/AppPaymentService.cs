@@ -8,12 +8,13 @@ namespace PaymentApp.Droid.Services
 {
     public class AppPaymentService : IAppPaymentService
     {
-        public string BhimPay(string amount)
+        public string BhimPay(string pa, string pn, string amount)
         {
-
+            BhimPayActivity.pa = pa;
+            BhimPayActivity.pn = pn;
+            BhimPayActivity.amount = amount;
             Intent intent = new Intent(nameof(BhimPayActivity));
             intent = new Intent(CrossCurrentActivity.Current.Activity, typeof(BhimPayActivity));
-            intent.PutExtra("amount", amount);
             intent.AddFlags(ActivityFlags.ClearTop);
             CrossCurrentActivity.Current.Activity.StartActivity(intent);
             return "";
@@ -26,7 +27,6 @@ namespace PaymentApp.Droid.Services
             GooglePayActivity.amount = amount;
             Intent intent = new Intent(nameof(GooglePayActivity));
             intent = new Intent(CrossCurrentActivity.Current.Activity, typeof(GooglePayActivity));
-            intent.PutExtra("amount", amount);
             intent.AddFlags(ActivityFlags.ClearTop);
             CrossCurrentActivity.Current.Activity.StartActivity(intent);
             return "";
@@ -37,24 +37,28 @@ namespace PaymentApp.Droid.Services
             return "";
         }
 
-        public string PayTm(string amount)
+        public string PayTm(string pa, string pn, string amount)
         {
-
-            //Intent intent = new Intent(nameof(PayTmActivity));
-            //intent = new Intent(CrossCurrentActivity.Current.Activity, typeof(PayTmActivity));
-            //intent.PutExtra("amount", amount);
-            //intent.AddFlags(ActivityFlags.ClearTop);
-            //CrossCurrentActivity.Current.Activity.StartActivity(intent);
+            PaytmActivity.pa = pa;
+            PaytmActivity.pn = pn;
+            PaytmActivity.amount = amount;
+            Intent intent = new Intent(nameof(PaytmActivity));
+            intent = new Intent(CrossCurrentActivity.Current.Activity, typeof(PaytmActivity));
+            intent.PutExtra("amount", amount);
+            intent.AddFlags(ActivityFlags.ClearTop);
+            CrossCurrentActivity.Current.Activity.StartActivity(intent);
             return "";
         }
 
         public string PhonePay(string pa, string pn, string amount)
         {
-            //Intent intent = new Intent(nameof(PhonePeActivity));
-            //intent = new Intent(CrossCurrentActivity.Current.Activity, typeof(PhonePeActivity));
-            //intent.PutExtra("amount", amount);
-            //intent.AddFlags(ActivityFlags.ClearTop);
-            //CrossCurrentActivity.Current.Activity.StartActivity(intent);
+            PhonePeActivity.pa = pa;
+            PhonePeActivity.pn = pn;
+            PhonePeActivity.amount = amount;
+            Intent intent = new Intent(nameof(PhonePeActivity));
+            intent = new Intent(CrossCurrentActivity.Current.Activity, typeof(PhonePeActivity));
+            intent.AddFlags(ActivityFlags.ClearTop);
+            CrossCurrentActivity.Current.Activity.StartActivity(intent);
             return "";
         }
     }

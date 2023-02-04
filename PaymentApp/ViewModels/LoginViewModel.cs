@@ -88,7 +88,7 @@ namespace PaymentApp.ViewModels
                         var pa = paymentUPIFirstSplitpa[1];
                         var pn = paymentUPIFirstSplitpn[1];
                         IAppPaymentService service = DependencyService.Get<IAppPaymentService>();
-                        service.GooglePay(pa, pn, Amount);
+                        service.PhonePay(pa, pn, Amount);
 
                     }
                     //if (apiresult.success == true)

@@ -17,7 +17,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
@@ -91,6 +91,8 @@
     <Compile Include="Services\AppPaymentService.cs" />
     <Compile Include="Services\BhimPayActivity.cs" />
     <Compile Include="Services\GooglePayActivity.cs" />
+    <Compile Include="Services\PaytmActivity.cs" />
+    <Compile Include="Services\PhonePeActivity.cs" />
     <Compile Include="Services\QRScanningService.cs" />
   </ItemGroup>
   <ItemGroup>

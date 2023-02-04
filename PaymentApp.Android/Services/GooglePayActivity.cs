@@ -21,29 +21,22 @@ namespace PaymentApp.Droid.Services
         public static string pn { get; set; }
         public static string pa { get; set; }
         public static string amount { get; set; }
-        public static string googlePayURI { get; set; }
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             try
             {
+                string amount = "1"; // Intent.GetStringExtra("amount");
                 long tsLong = JavaSystem.CurrentTimeMillis() / 1000;
-                //string transaction_ref_id ="999999999999";
-                //string transaction_ref = "999999999999";
                 string transaction_ref_id = tsLong.ToString() + "UPI";
-                string transaction_ref = tsLong.ToString();
-                //googlePayURI = "upi://pay?pa=priya.gaikwad74@okhdfcbank&pn=Priya%20Gaikwad&aid=uGICAgIDVjo_qPQ";
-                //var uri = Android.Net.Uri.Parse(googlePayURI);
                 using (var uri = new Android.Net.Uri.Builder()
                                                 .Scheme("upi")
                                                 .Authority("pay")
                                                 .AppendQueryParameter("pa", pa)
+                                                //  .AppendQueryParameter("pa", pa)
                                                 .AppendQueryParameter("pn", pn)
-                                                //.AppendQueryParameter("pn", pn)
-                                                .AppendQueryParameter("mc", "0000")
-                                                .AppendQueryParameter("tid", transaction_ref)
-                                                .AppendQueryParameter("tr", transaction_ref_id)
                                                 .AppendQueryParameter("tn", "Test integration note")
+                                                .AppendQueryParameter("tr", transaction_ref_id)
                                                 .AppendQueryParameter("am", amount)
                                                 .AppendQueryParameter("cu", "INR")
                                                 .Build())
@@ -55,13 +48,46 @@ namespace PaymentApp.Droid.Services
                         Intent.SetPackage("com.google.android.apps.nbu.paisa.user");
                         StartActivityForResult(Intent, 9999);
                     }
+
                     else
                     {
                         var package = PackageName;
-                        ShowToast("Google pay is not available in this device");
+                        Toast.MakeText(Android.App.Application.Context, "Google pay is not available in this device", ToastLength.Long).Show();
                         this.Finish();
                     }
                 }
+
+                //long tsLong = JavaSystem.CurrentTimeMillis() / 1000;
+                //string transaction_ref_id = tsLong.ToString() + "UPI";
+                //string transaction_ref = tsLong.ToString();
+                //using (var uri = new Android.Net.Uri.Builder()
+                //                                .Scheme("upi")
+                //                                .Authority("pay")
+                //                                .AppendQueryParameter("pa", pa)
+                //                                .AppendQueryParameter("pn", pn)
+                //                                //.AppendQueryParameter("pn", pn)
+                //                                .AppendQueryParameter("mc", "")
+                //                                .AppendQueryParameter("tid", transaction_ref)
+                //                                .AppendQueryParameter("tr", transaction_ref_id)
+                //                                .AppendQueryParameter("tn", "Test integration note")
+                //                                .AppendQueryParameter("am", amount)
+                //                                .AppendQueryParameter("cu", "INR")
+                //                                .Build())
+                //{
+                //    Intent = new Intent(Intent.ActionView);
+                //    Intent.SetData(uri);
+                //    if (IsAppInstalled("com.google.android.apps.nbu.paisa.user"))
+                //    {
+                //        Intent.SetPackage("com.google.android.apps.nbu.paisa.user");
+                //        StartActivityForResult(Intent, 9999);
+                //    }
+                //    else
+                //    {
+                //        var package = PackageName;
+                //        ShowToast("Google pay is not available in this device");
+                //        this.Finish();
+                //    }
+                //}
             }
             catch (System.Exception ex)
             {

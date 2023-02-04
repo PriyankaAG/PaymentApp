@@ -9,7 +9,7 @@ namespace PaymentApp.Services
         string GooglePay(string pa, string pn, string amount);
         string PhonePay(string pa, string pn, string amount);
         string IciciPay(string amount);
-        string BhimPay(string amount);
-        string PayTm(string amount);
+        string BhimPay(string pa, string pn, string amount);
+        string PayTm(string pa, string pn, string amount);
     }
 }

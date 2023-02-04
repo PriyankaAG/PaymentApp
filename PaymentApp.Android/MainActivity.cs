@@ -9,6 +9,7 @@ using Plugin.CurrentActivity;
 namespace PaymentApp.Droid
 {
     [Activity(Label = "PaymentApp", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+    //[MetaData(name: "com.google.android.gms.wallet.api.enabled", Value = "true")]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

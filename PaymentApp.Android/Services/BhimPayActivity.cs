@@ -24,14 +24,16 @@ namespace PaymentApp.Droid.Services
         string TrnxacsnId = "";
 
         List<string> ResponseList = new List<string>();
+        public static string pn { get; set; }
+        public static string pa { get; set; }
+        public static string amount { get; set; }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
 
             base.OnCreate(savedInstanceState);
             try
             {
-                string amount = Intent.GetStringExtra("amount");
-
                 long tsLong = JavaSystem.CurrentTimeMillis() / 1000;
                 string transaction_ref_id = Guid.NewGuid().ToString().Substring(0, 10) + "UPI";
                 string transaction_ref = Guid.NewGuid().ToString().Substring(0, 10);
@@ -40,17 +42,15 @@ namespace PaymentApp.Droid.Services
                 using (var uri = new Android.Net.Uri.Builder()
                                                .Scheme("upi")
                                                 .Authority("pay")
-                                                 .AppendQueryParameter("pa", "PaymentUpiId")
+                                                 .AppendQueryParameter("pa", pa)
                                                 // .AppendQueryParameter("pa", "7017958029@upi")
-                                                .AppendQueryParameter("pn", "Nonco")
+                                                .AppendQueryParameter("pn", pn)
                                                 .AppendQueryParameter("mc", "0000")
                                                 .AppendQueryParameter("tid", transaction_ref)
                                                 .AppendQueryParameter("tr", transaction_ref_id)
-                                                .AppendQueryParameter("tn", "Pay to nonco")
+                                                .AppendQueryParameter("tn", pn)
                                                 .AppendQueryParameter("am", amount)
                                                 .AppendQueryParameter("cu", "INR")
-                                                .AppendQueryParameter("url", "https://www.sample.in")
-
                                                 .Build())
                 {
                     Intent = new Intent(Intent.ActionView);
@@ -96,20 +96,17 @@ namespace PaymentApp.Droid.Services
             }
             catch (System.Exception ex)
             {
-
                 Console.WriteLine("Exception while Bhim payment :" + ex.Message);
                 ShowToast("Payment through Bhim failed");  //! Failed
             }
             if (status == "success")
             {
                 var tranData = new Tuple<bool, string>(true, TrnxacsnId);
-                Console.Write("Phonepe Messenging center [] status : success");
                 MessagingCenter.Send("PayStatus", "PayStatus", tranData);
             }
             else
             {
                 var tranData = new Tuple<bool, string>(false, null);
-                Console.Write("Phonepe Messenging center [] status : failed");
                 MessagingCenter.Send("PayStatus", "PayStatus", tranData);
             }
 
